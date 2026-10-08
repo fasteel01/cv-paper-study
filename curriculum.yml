@@ -45,7 +45,8 @@
   arxiv_id: "1409.1556"
   reference_url: "https://arxiv.org/abs/1409.1556"
   slug: "vggnet"
-  status: pending
+  status: done
+  date: "2026-10-08"
 
 - week: 2
   order: 2
@@ -58,7 +59,8 @@
   arxiv_id: "1409.4842"
   reference_url: "https://arxiv.org/abs/1409.4842"
   slug: "googlenet"
-  status: pending
+  status: done
+  date: "2026-10-08"
 
 - week: 3
   order: 1
