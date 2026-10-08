@@ -1,0 +1,108 @@
+name: Weekly CV paper
+
+# 매주 월요일 08:00 KST (= 일요일 23:00 UTC)에 GitHub 서버에서 실행됩니다.
+# 맥북이 꺼져 있어도 동작하며, Actions 탭에서 "Run workflow"로 수동 실행도 가능합니다.
+on:
+  schedule:
+    - cron: "0 23 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-paper
+  cancel-in-progress: false
+
+jobs:
+  weekly-paper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies (CPU torch for shape checks)
+        run: |
+          pip install --quiet pyyaml
+          pip install --quiet torch torchvision --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Check remaining papers
+        id: check
+        run: |
+          python - <<'EOF'
+          import os, yaml
+          items = yaml.safe_load(open("curriculum.yml", encoding="utf-8"))
+          pending = [i for i in items if i.get("status") == "pending"]
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"pending={len(pending)}\n")
+          print(f"pending papers: {len(pending)}")
+          EOF
+          echo "today=$(TZ=Asia/Seoul date +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Write this week's papers with Claude
+        if: steps.check.outputs.pending != '0'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          claude_args: >-
+            --max-turns 80
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash(python:*),Bash(python3:*),Bash(ls:*),Bash(mkdir:*),Bash(cat:*),Bash(cd:*)"
+          prompt: |
+            너는 이 저장소(cv-paper-study)의 주간 논문 스터디 자동화를 수행한다. 오늘 날짜(Asia/Seoul)는 ${{ steps.check.outputs.today }} 이다.
+            사용자는 컴퓨터 비전 학부연구생/대학원 진학을 준비하는 학생이고, "밑바닥부터 기초를 다지는" 학습을 원한다.
+
+            ## 할 일
+            1. `curriculum.yml`을 읽고 `status: pending`인 항목 중 (week, order) 순으로 가장 앞선 **2개**를 고른다. (1개만 남았으면 1개만.)
+            2. 먼저 `papers/week01/` 아래 lenet5, alexnet 폴더의 파일들을 읽고 형식·분량·톤을 그대로 따른다.
+            3. 고른 논문마다 아래 파일을 만든다. weekNN은 해당 항목의 week를 두 자리로 (예: 2 → week02), <slug>는 curriculum.yml의 slug.
+               - `papers/weekNN/<slug>/summary.md` — 한국어. 1) 배경 및 문제의식 2) 핵심 아이디어 3) 아키텍처/방법(표·수식 포함) 4) 실험 결과 요약 5) 의의(앞뒤 논문과의 연결) 6) 구현 노트. 상세하고 정확하게.
+               - `papers/weekNN/<slug>/paper_link.md` — 제목/저자/출처/원문 링크(reference_url). "원문 PDF는 링크에서 직접 받아 보관 권장" 안내 포함.
+               - `papers/weekNN/<slug>/implementation/model.py` — PyTorch로 핵심 아키텍처를 처음부터 구현. 원 논문과 다른 현대적 단순화는 docstring에 명시. `if __name__ == "__main__":`에서 더미 입력으로 forward 후 출력 shape 출력.
+               - `papers/weekNN/<slug>/implementation/train.py` — 가능하면 torchvision 공개 데이터셋(MNIST/CIFAR-10 등)으로 학습·평가하는 간단한 스크립트. 기법 논문(예: BatchNorm)은 적용 전/후 비교 실험 형태로. 탐지/분할처럼 데이터셋이 무거우면 loss 계산과 1 step 학습을 더미 데이터로 보여주는 형태로 대체해도 된다.
+               - `papers/weekNN/<slug>/implementation/README.md` — 실행 방법.
+            4. 각 model.py를 `cd papers/weekNN/<slug>/implementation && python model.py`로 실행해 에러가 없고 shape이 맞는지 확인하고, 문제가 있으면 고친다. (데이터셋 다운로드가 필요한 train.py는 실행하지 않는다.)
+            5. `curriculum.yml`에서 처리한 항목의 `status: pending`을 `status: done`으로 바꾸고 바로 아래 줄에 `date: "${{ steps.check.outputs.today }}"`를 추가한다. 다른 항목과 주석은 건드리지 않는다.
+            6. `README.md`의 "진행 상황" 표에서 해당 행의 ⏳를 ✅로 바꾸고, 행의 논문 이름을 `[이름](./papers/weekNN/<slug>)` 링크로 만든다.
+
+            ## 규칙
+            - 인터넷 검색이나 웹 페이지 접속은 하지 않는다. 이 논문들은 모두 잘 알려진 고전 논문이므로 알고 있는 지식으로 정확하게 작성한다. 확실하지 않은 수치는 쓰지 말거나 "약"으로 표현한다.
+            - git 명령(add/commit/push)은 실행하지 않는다. 커밋은 다음 워크플로 단계가 처리한다.
+            - 위에서 말한 파일 외에는 수정하지 않는다.
+
+      - name: Commit and push
+        if: steps.check.outputs.pending != '0'
+        env:
+          TODAY: ${{ steps.check.outputs.today }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A papers curriculum.yml README.md
+          if git diff --cached --quiet; then
+            echo "No changes produced; nothing to commit."
+            exit 1
+          fi
+          MSG=$(python - <<'EOF'
+          import os, yaml
+          items = yaml.safe_load(open("curriculum.yml", encoding="utf-8"))
+          done = [i for i in items if str(i.get("date")) == os.environ["TODAY"] and i.get("status") == "done"]
+          if done:
+              week = max(i["week"] for i in done)
+              names = ", ".join(i["short_name"] for i in done if i["week"] == week)
+              print(f"Week {week:02d}: {names} 논문 정리 및 구현")
+          else:
+              print(f"Weekly update {os.environ['TODAY']}")
+          EOF
+          )
+          git commit -m "$MSG"
+          git push
+
+      - name: Curriculum finished
+        if: steps.check.outputs.pending == '0'
+        run: echo "🎉 커리큘럼의 모든 논문을 완료했습니다. curriculum.yml에 다음 논문을 추가하면 이어서 진행됩니다."
