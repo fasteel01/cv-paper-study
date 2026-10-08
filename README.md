@@ -31,8 +31,8 @@ papers/
 | 1 | [AlexNet](./papers/week01/alexnet) — ImageNet Classification with Deep CNNs (2012) | foundations | ✅ |
 | 2 | [VGGNet](./papers/week02/vggnet) — Very Deep Convolutional Networks (2014) | foundations | ✅ |
 | 2 | [GoogLeNet](./papers/week02/googlenet) — Going Deeper with Convolutions (2014) | foundations | ✅ |
-| 3 | BatchNorm (2015) | foundations | ⏳ |
-| 3 | ResNet — Deep Residual Learning (2015) | foundations | ⏳ |
+| 3 | [BatchNorm](./papers/week03/batchnorm) (2015) | foundations | ✅ |
+| 3 | [ResNet](./papers/week03/resnet) — Deep Residual Learning (2015) | foundations | ✅ |
 | 4 | DenseNet (2017) | foundations | ⏳ |
 | 4 | MobileNet (2017) | foundations | ⏳ |
 | 5 | R-CNN (2014) | detection | ⏳ |

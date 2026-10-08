@@ -73,7 +73,8 @@
   arxiv_id: "1502.03167"
   reference_url: "https://arxiv.org/abs/1502.03167"
   slug: "batchnorm"
-  status: pending
+  status: done
+  date: "2026-10-08"
 
 - week: 3
   order: 2
@@ -86,7 +87,8 @@
   arxiv_id: "1512.03385"
   reference_url: "https://arxiv.org/abs/1512.03385"
   slug: "resnet"
-  status: pending
+  status: done
+  date: "2026-10-08"
 
 - week: 4
   order: 1
