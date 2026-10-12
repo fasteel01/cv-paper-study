@@ -101,7 +101,8 @@
   arxiv_id: "1608.06993"
   reference_url: "https://arxiv.org/abs/1608.06993"
   slug: "densenet"
-  status: pending
+  status: done
+  date: "2026-10-12"
 
 - week: 4
   order: 2
@@ -114,7 +115,8 @@
   arxiv_id: "1704.04861"
   reference_url: "https://arxiv.org/abs/1704.04861"
   slug: "mobilenet"
-  status: pending
+  status: done
+  date: "2026-10-12"
 
 - week: 5
   order: 1

@@ -33,8 +33,8 @@ papers/
 | 2 | [GoogLeNet](./papers/week02/googlenet) — Going Deeper with Convolutions (2014) | foundations | ✅ |
 | 3 | [BatchNorm](./papers/week03/batchnorm) (2015) | foundations | ✅ |
 | 3 | [ResNet](./papers/week03/resnet) — Deep Residual Learning (2015) | foundations | ✅ |
-| 4 | DenseNet (2017) | foundations | ⏳ |
-| 4 | MobileNet (2017) | foundations | ⏳ |
+| 4 | [DenseNet](./papers/week04/densenet) — Densely Connected Convolutional Networks (2017) | foundations | ✅ |
+| 4 | [MobileNet](./papers/week04/mobilenet) — MobileNets: Efficient CNNs for Mobile Vision (2017) | foundations | ✅ |
 | 5 | R-CNN (2014) | detection | ⏳ |
 | 5 | Fast R-CNN (2015) | detection | ⏳ |
 | 6 | Faster R-CNN (2015) | detection | ⏳ |
