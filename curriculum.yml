@@ -129,7 +129,8 @@
   arxiv_id: "1311.2524"
   reference_url: "https://arxiv.org/abs/1311.2524"
   slug: "rcnn"
-  status: pending
+  status: done
+  date: "2026-10-19"
 
 - week: 5
   order: 2
@@ -142,7 +143,8 @@
   arxiv_id: "1504.08083"
   reference_url: "https://arxiv.org/abs/1504.08083"
   slug: "fast-rcnn"
-  status: pending
+  status: done
+  date: "2026-10-19"
 
 - week: 6
   order: 1
