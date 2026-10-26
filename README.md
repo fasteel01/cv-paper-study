@@ -37,8 +37,8 @@ papers/
 | 4 | [MobileNet](./papers/week04/mobilenet) — MobileNets: Efficient CNNs for Mobile Vision (2017) | foundations | ✅ |
 | 5 | [R-CNN](./papers/week05/rcnn) (2014) | detection | ✅ |
 | 5 | [Fast R-CNN](./papers/week05/fast-rcnn) (2015) | detection | ✅ |
-| 6 | Faster R-CNN (2015) | detection | ⏳ |
-| 6 | YOLOv1 (2016) | detection | ⏳ |
+| 6 | [Faster R-CNN](./papers/week06/faster-rcnn) (2015) | detection | ✅ |
+| 6 | [YOLOv1](./papers/week06/yolov1) (2016) | detection | ✅ |
 | 7 | SSD (2016) | detection | ⏳ |
 | 7 | FPN (2017) | detection | ⏳ |
 | 8 | RetinaNet (2017) | detection | ⏳ |

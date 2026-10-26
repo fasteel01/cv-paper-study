@@ -157,7 +157,8 @@
   arxiv_id: "1506.01497"
   reference_url: "https://arxiv.org/abs/1506.01497"
   slug: "faster-rcnn"
-  status: pending
+  status: done
+  date: "2026-10-26"
 
 - week: 6
   order: 2
@@ -170,7 +171,8 @@
   arxiv_id: "1506.02640"
   reference_url: "https://arxiv.org/abs/1506.02640"
   slug: "yolov1"
-  status: pending
+  status: done
+  date: "2026-10-26"
 
 - week: 7
   order: 1
