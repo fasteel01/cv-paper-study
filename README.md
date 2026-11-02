@@ -39,8 +39,8 @@ papers/
 | 5 | [Fast R-CNN](./papers/week05/fast-rcnn) (2015) | detection | ✅ |
 | 6 | [Faster R-CNN](./papers/week06/faster-rcnn) (2015) | detection | ✅ |
 | 6 | [YOLOv1](./papers/week06/yolov1) (2016) | detection | ✅ |
-| 7 | SSD (2016) | detection | ⏳ |
-| 7 | FPN (2017) | detection | ⏳ |
+| 7 | [SSD](./papers/week07/ssd) (2016) | detection | ✅ |
+| 7 | [FPN](./papers/week07/fpn) (2017) | detection | ✅ |
 | 8 | RetinaNet (2017) | detection | ⏳ |
 | 8 | FCN (2015) | segmentation | ⏳ |
 | 9 | U-Net (2015) | segmentation | ⏳ |

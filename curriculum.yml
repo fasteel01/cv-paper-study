@@ -185,7 +185,8 @@
   arxiv_id: "1512.02325"
   reference_url: "https://arxiv.org/abs/1512.02325"
   slug: "ssd"
-  status: pending
+  status: done
+  date: "2026-11-02"
 
 - week: 7
   order: 2
@@ -198,7 +199,8 @@
   arxiv_id: "1612.03144"
   reference_url: "https://arxiv.org/abs/1612.03144"
   slug: "fpn"
-  status: pending
+  status: done
+  date: "2026-11-02"
 
 - week: 8
   order: 1
