@@ -213,7 +213,8 @@
   arxiv_id: "1708.02002"
   reference_url: "https://arxiv.org/abs/1708.02002"
   slug: "retinanet"
-  status: pending
+  status: done
+  date: "2026-11-09"
 
 - week: 8
   order: 2
@@ -226,7 +227,8 @@
   arxiv_id: "1411.4038"
   reference_url: "https://arxiv.org/abs/1411.4038"
   slug: "fcn"
-  status: pending
+  status: done
+  date: "2026-11-09"
 
 - week: 9
   order: 1
