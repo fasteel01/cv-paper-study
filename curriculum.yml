@@ -241,7 +241,8 @@
   arxiv_id: "1505.04597"
   reference_url: "https://arxiv.org/abs/1505.04597"
   slug: "unet"
-  status: pending
+  status: done
+  date: "2026-11-16"
 
 - week: 9
   order: 2
@@ -254,7 +255,8 @@
   arxiv_id: "1703.06870"
   reference_url: "https://arxiv.org/abs/1703.06870"
   slug: "mask-rcnn"
-  status: pending
+  status: done
+  date: "2026-11-16"
 
 - week: 10
   order: 1

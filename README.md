@@ -43,8 +43,8 @@ papers/
 | 7 | [FPN](./papers/week07/fpn) (2017) | detection | ✅ |
 | 8 | [RetinaNet](./papers/week08/retinanet) (2017) | detection | ✅ |
 | 8 | [FCN](./papers/week08/fcn) (2015) | segmentation | ✅ |
-| 9 | U-Net (2015) | segmentation | ⏳ |
-| 9 | Mask R-CNN (2017) | segmentation | ⏳ |
+| 9 | [U-Net](./papers/week09/unet) (2015) | segmentation | ✅ |
+| 9 | [Mask R-CNN](./papers/week09/mask-rcnn) (2017) | segmentation | ✅ |
 | 10 | DeepLabv3 (2017) | segmentation | ⏳ |
 | 10 | Transformer — Attention Is All You Need (2017) | transformer-era | ⏳ |
 | 11 | ViT (2020) | transformer-era | ⏳ |
