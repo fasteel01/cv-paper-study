@@ -269,7 +269,8 @@
   arxiv_id: "1706.05587"
   reference_url: "https://arxiv.org/abs/1706.05587"
   slug: "deeplabv3"
-  status: pending
+  status: done
+  date: "2026-11-23"
 
 - week: 10
   order: 2
@@ -282,7 +283,8 @@
   arxiv_id: "1706.03762"
   reference_url: "https://arxiv.org/abs/1706.03762"
   slug: "transformer"
-  status: pending
+  status: done
+  date: "2026-11-23"
 
 - week: 11
   order: 1

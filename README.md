@@ -45,8 +45,8 @@ papers/
 | 8 | [FCN](./papers/week08/fcn) (2015) | segmentation | ✅ |
 | 9 | [U-Net](./papers/week09/unet) (2015) | segmentation | ✅ |
 | 9 | [Mask R-CNN](./papers/week09/mask-rcnn) (2017) | segmentation | ✅ |
-| 10 | DeepLabv3 (2017) | segmentation | ⏳ |
-| 10 | Transformer — Attention Is All You Need (2017) | transformer-era | ⏳ |
+| 10 | [DeepLabv3](./papers/week10/deeplabv3) (2017) | segmentation | ✅ |
+| 10 | [Transformer](./papers/week10/transformer) — Attention Is All You Need (2017) | transformer-era | ✅ |
 | 11 | ViT (2020) | transformer-era | ⏳ |
 | 11 | DETR (2020) | transformer-era | ⏳ |
 | 12 | Swin Transformer (2021) | transformer-era | ⏳ |
